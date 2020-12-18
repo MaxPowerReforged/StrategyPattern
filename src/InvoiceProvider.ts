@@ -1,11 +1,15 @@
-const InvoiceDateFormatter = require('./DateFormatter');
+const InvoiceDateFormatter = require('./IDateFormatter');
 
 class InvoiceProvider {
 
-  DateFormatter = new InvoiceDateFormatter();
+  currentDateFormatterStrategy: InstanceType<typeof InvoiceDateFormatter>;
+
+  constructor(DateFormatterStrategy: InstanceType<typeof InvoiceDateFormatter>){
+    this.currentDateFormatterStrategy = DateFormatterStrategy;
+  }
 
   printInvoice() :string {
-    return "string";
+    return 'string';
   }
 
   //other methods
